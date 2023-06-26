@@ -1,10 +1,11 @@
+
 <p align="center">
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
 <h1>osTicket - Prerequisites and Installation</h1>
-This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket. A ticketing system 
-is an invaluable resource for any company using a help desk, so I took it upon myself to learn the installation and configuration of one.<br />
+This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket. <br> A ticketing system 
+is an invaluable resource for any company using a help desk, so I took it upon myself to learn, <br> implement, and write a tutorial of the installation and configuration of one.<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -27,9 +28,38 @@ is an invaluable resource for any company using a help desk, so I took it upon m
 - osTicket 1.15.8.
 - All installation files used can be found [here](https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
 
-<h2>Installation Steps</h2>
+<h2>Overview</h2>
 
-<p>
+1. Create a Resource Group and Windows Virtual Machine within Azure
+2. Install Prerequisites
+3. Install osTicket
+
+<h2>Installation Steps</h2>
+<h3>Create a Resource Group and Windows Virtual Machine within Azure:</h3><p>
+
+<p>In order to download osTicket, we first need to create a Virtual Machine for osTicket to run off of. We'll be using Microsoft's Azure platform to create the VM in order to test various software and services without tampering with our physical computer.</p>
+
+<h4>Creating the Resource Group and Microsoft VM:</h4>
+
+1. Navigate to Microsoft Azure > Navigate to 'Resource Groups' via the quick access icon or search bar > select 'Create Resource Group'
+2. We'll name our Resource Group: "RG-osTicket". There is nothing left for us to alter so select 'Review + Create'
+
+<br>
+<img src="https://i.imgur.com/a5aZTph.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br>
+
+3. Navigate to 'Virtual Machines' within Azure via quick access icon or search bar > select 'Create Virtual Machine'
+4. Within the Virtual Machine portal, we will make the following changes:
+
+- Pick the resource group we just created: 'RG-osTicket'
+- Name of Virtual Machine: 'VM-osTicket'
+- Image: 'Windows 10 Pro, version 22H2 - x64 Gen2'
+- Size: 2-4 vcpus (4vcpu is okay since we’re only using 1 virtual machine and thus is free to utilize all power)
+- Username/password of choice: Example username: darinstathos (Remember this username/password for later when logging into VM)
+- Check Licensing Box: [X] ‘I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights.’
+- Select 'Next: Disks >', 'Next: Networking >': Beside Virtual Network: We don't have a virtual network yet so Azure automatically created on for us: '(new)VM-osTicket-vnet'
+- Select 'Review + Create'
+
 <img src="https://user-images.githubusercontent.com/129685324/234038547-1f11debd-934d-4ae2-b58b-74d10281c132.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
